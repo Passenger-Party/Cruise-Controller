@@ -1,0 +1,45 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    background: linear-gradient(#ffb300, #ef6c00, #bf360c);
+    margin: 0;
+    padding: 0;
+    font-family: 'Oswald', sans-serif;
+    line-height: 1.5;
+    color: white;
+}
+
+h1 {
+
+}
+
+.btn {
+font-size: 1.3rem; 
+text-decoration: none;
+box-shadow: 2px 2px #bf360c;
+}
+
+.btn:hover {
+    background-color: #fbc02d;
+}
+
+#tempmapdiv{
+    margin:2em;
+    height: 30vh;
+    aspect-ratio: 3 / 2;
+}
+
+.nav-wrapper { 
+    
+}
+
+.container { 
+
+}
+
+.card-image { 
+
+}
