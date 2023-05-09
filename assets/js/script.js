@@ -15,4 +15,6 @@ var googleDirections =  https://www.google.com/maps/dir/?api=1&origin={STARTINGP
 
 function displayMap () {
     var googleDirections =  https://www.google.com/maps/dir/?api=1&origin=Chicago&destination=Milwaukee&travelmode=driving&map_action=map
+var new googleDirections
+
 }
