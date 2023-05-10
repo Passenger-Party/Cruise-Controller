@@ -30,21 +30,15 @@ box-shadow: 2px 2px #bf360c;
     background-color: #fbc02d;
 }
 
+.page-header {
+    color: #bf360c;
+    font-family: 'TypoPRO Bukhari Script';
+}
+
 #tempmapdiv{
     margin:2em;
     height: 30vh;
     aspect-ratio: 3 / 2;
 }
 
-.nav-wrapper { 
-    
-}
-
-.container { 
-
-}
-
-.card-image { 
-
-}
 
