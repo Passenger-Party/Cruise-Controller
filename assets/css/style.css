@@ -1,0 +1,44 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    background: linear-gradient(#ffb300, #ef6c00, #bf360c);
+    margin: 0;
+    padding: 0;
+    font-family: 'Oswald', sans-serif;
+    line-height: 1.5;
+    color: white;
+}
+nav {
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+.brand-logo {
+    font-size: 200px;
+}
+
+.btn {
+font-size: 1.3rem; 
+text-decoration: none;
+box-shadow: 2px 2px #bf360c;
+}
+
+.btn:hover {
+    background-color: #fbc02d;
+}
+
+.page-header {
+    color: #bf360c;
+    font-family: 'TypoPRO Bukhari Script';
+}
+
+#tempmapdiv{
+    margin:2em;
+    height: 30vh;
+    aspect-ratio: 3 / 2;
+}
+
+
