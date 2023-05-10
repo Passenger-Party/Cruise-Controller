@@ -11,9 +11,13 @@ body {
     line-height: 1.5;
     color: white;
 }
+nav {
+    padding-left: 1em;
+    padding-right: 1em;
+}
 
-h1 {
-
+.brand-logo {
+    font-size: 200px;
 }
 
 .btn {
@@ -43,3 +47,4 @@ box-shadow: 2px 2px #bf360c;
 .card-image { 
 
 }
+
