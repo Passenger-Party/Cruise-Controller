@@ -4269,17 +4269,18 @@ table span.badge {
   }
 }
 
+
 nav {
   color: #fff;
   background-color: #FFCCBC;
-  width: 100%;
-  height: 56px;
+  width: 20%;
+  height: 100%;
   line-height: 56px;
 }
 
-nav.nav-extended {
+/* nav.nav-extended {
   height: auto;
-}
+} */
 
 nav.nav-extended .nav-wrapper {
   min-height: 56px;
@@ -4330,12 +4331,11 @@ nav .sidenav-trigger i {
 
 nav .brand-logo {
   position: absolute;
-  color: #F6F3E4;
-  font-family: 'TypoPRO Bukhari Script';
-  text-shadow: 4px 4px #FF6E40;
+  height: 100px;
+  left: -100px;
+  top: -100px;
   display: inline-block;
   font-size: 3rem;
-  padding: 0;
 }
 
 nav .brand-logo.center {
@@ -4479,11 +4479,9 @@ nav .input-field label.active i {
     min-height: 100px;
   }
   nav, nav .nav-wrapper i, nav a.sidenav-trigger, nav a.sidenav-trigger i {
-    height: 64px;
     line-height: 64px;
   }
   .navbar-fixed {
-    height: 64px;
   }
 }
 
