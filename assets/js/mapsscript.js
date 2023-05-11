@@ -100,6 +100,8 @@ function calculateAndDisplayRoute(directionsService, directionsRenderer) {
 
 window.initMap = initMap;
 searchBtn.addEventListener('click', initMap); */
+var tripStart=document.getElementById('trip-start');
+var tripEnd=document.getElementById('trip-end');
 var end = localStorage.getItem("Destination")
 
 var map;
@@ -117,6 +119,8 @@ function initMap() {
   var start = localStorage.getItem("Origin");
 
   var end = localStorage.getItem("Destination");
+  tripStart.textContent=start;
+  tripEnd.textContent=end;
   drawPath(directionsService, directionsDisplay, start, end);
 }
 
