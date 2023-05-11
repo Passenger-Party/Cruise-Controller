@@ -2,22 +2,16 @@
     box-sizing: border-box;
 }
 
-body {
-    height: 100vh;
-    background: linear-gradient(#ffb300, #ef6c00, #bf360c);
+html{
+    height: 100%;
+}
+
+body {   
     margin: 0;
     padding: 0;
     font-family: 'Oswald', sans-serif;
     line-height: 1.5;
     color: white;
-}
-nav {
-    padding-left: 1em;
-    padding-right: 1em;
-}
-
-.brand-logo {
-    font-size: 200px;
 }
 
 .btn {
@@ -35,10 +29,104 @@ box-shadow: 2px 2px #bf360c;
     font-family: 'TypoPRO Bukhari Script';
 }
 
-#tempmapdiv{
+#tempmapdiv {
     margin:2em;
     height: 30vh;
     aspect-ratio: 3 / 2;
 }
 
+aside {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+    background-color: #FFCCBC;
+    width: 20%;
+    min-height: 100%;
+    z-index: 1;
+  }
+
+@media screen and (max-width: 550px){
+    aside {
+        background-color: white;
+    }
+}
+  
+aside img {
+    position: relative;
+    margin-top: 20%;
+    margin-left: 5%;
+    margin-right: 5%;
+    width: 90%;
+}
+
+aside p {
+    position: relative;
+    bottom: 10px;
+    margin-left: 2em;
+    font-style: italic;
+    font-size: calc(10px + 10%);
+
+}
+
+aside ul {
+    position: relative;
+    margin: 0;
+    line-height: 100px;
+}
+
+aside ul li {
+    -webkit-transition: background-color .3s;
+    transition: background-color .3s;
+    position: relative;
+    padding: 0;
+    margin-top: 4%;
+}
+
+aside ul li.active {
+background-color: rgba(0, 0, 0, 0.1);
+}
+
+aside ul a {
+    -webkit-transition: background-color .3s;
+    transition: background-color .3s;
+    font-size: calc(1rem + 1vw);
+    color: #000;
+    text-shadow: 1px 1px #FF6E40;
+    display: block;
+    padding: 0 15px;
+    cursor: pointer;
+}
+
+aside ul a:hover {
+background-color: rgba(0, 0, 0, 0.1);
+}
+
+#main {
+    position: absolute;
+    height: 100%;
+    background-size: cover;
+    background: linear-gradient(#ffb300, #ef6c00, #bf360c);
+    background-repeat: no-repeat;
+    overflow: scroll;
+    right: 0;
+    width: 80%;
+}
+
+#main-index {
+    position: absolute;
+    height: 100%;
+    background-size: cover;
+    background: linear-gradient(#ffb300, #ef6c00, #bf360c);
+    background-repeat: no-repeat;
+    overflow: scroll;
+    padding-top: 10%;
+    right: 0;
+    width: 100%;
+    padding-left: 20%;
+}
+
+#start-btn {
+    color: #bf360c;
+}
 

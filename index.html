@@ -16,22 +16,22 @@
 </head>
 <body>
  
-  <nav class="nav-extended"> 
-      <div class="nav-wrapper">
-        <a href="#" class="brand-logo left">Cruise Controller</a>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
+  <aside> 
+      <div>
+        <a href="#" class="brand-logo"><img src="./assets/images/Cruise Controller.png" alt=""></a>
+        <ul id="nav-mobile">
           <li><a href="./index.html">New Trip</a></li>
           <li><a href="./saved-trips.html">Saved Trips</a></li>
           <li><a href="./about-us.html">About Us</a></li>
         </ul>
       </div> 
-  </nav>
+  </aside>
 
     
   
-  <div id="main" class="container">
+  <div id="main-index" class="center-align">
     <h1 class="page-header center-align">Where Are We Going?</h1>
-    <div class="form">   
+    <div class="form container">   
       <div class="row">
         <div class="input-field col s6">
           <input  id="start-point" type="text" class="validate">
@@ -43,18 +43,15 @@
         </div>
       </div>
       
-      <button onclick="redirectPage()" id="start-btn" type="submit" class="btn" 
+      <button onclick="redirectPage()" id="start-btn" type="submit" class="deep-orange lighten-4 btn-large" 
       >Find Trip</button>
       <script>
         function redirectPage() {
           location.replace("trip.html")
         }
         </script>
-    
+
     </div>
-    <div id="tempmapdiv">
-      
-    </div>    
   </div> 
    
  
