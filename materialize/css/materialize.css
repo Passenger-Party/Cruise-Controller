@@ -3442,7 +3442,7 @@ table span.badge {
 
 @media only screen and (min-width: 993px) {
   .container {
-    width: 70%;
+    width: 95%;
   }
 }
 
@@ -4524,7 +4524,7 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 }
 
 h1 {
-  font-size: 4.2rem;
+  font-size: calc(2rem + 2vw);
   line-height: 110%;
   margin: 2.8rem 0 1.68rem 0;
 }
@@ -6586,7 +6586,7 @@ textarea.materialize-textarea + label:after, .select-wrapper + label:after {
 }
 
 .input-field .prefix.active {
-  color: #26a69a;
+  color: white;
 }
 
 .input-field .prefix ~ input,
