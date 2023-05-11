@@ -1,7 +1,7 @@
 //var origin=document.getElementById('start-point').value;
 //var destination=document.getElementById('destination').value;
-var searchBtn=document.getElementById('start-btn')
-var googleApi='AIzaSyDOMF9Qvb_zajNGVx1sVSlEEZwEnANziH0'
+var searchBtn = document.getElementById("start-btn");
+var googleApi = "AIzaSyDOMF9Qvb_zajNGVx1sVSlEEZwEnANziH0";
 //var mapDiv=document.createElement('div')
 // Maps API key
 // AIzaSyDOMF9Qvb_zajNGVx1sVSlEEZwEnANziH0
@@ -10,13 +10,13 @@ var googleApi='AIzaSyDOMF9Qvb_zajNGVx1sVSlEEZwEnANziH0'
 
 // Directions
 
-var mapDiv = document.querySelector("#tempmapdiv")
-var googleDirections =  'https://www.google.com/maps/dir/?api=1&origin={start}&destination={end}&travelmode=driving&map_action=map'
+var mapDiv = document.querySelector("#tempmapdiv");
+var googleDirections =
+  "https://www.google.com/maps/dir/?api=1&origin={start}&destination={end}&travelmode=driving&map_action=map";
 
-	
 //var DirectionsService;
-// origin - defines the starting point from which to display directions 
-//destination - endpoint of the directions 
+// origin - defines the starting point from which to display directions
+//destination - endpoint of the directions
 
 // function displayMap () {
 //     var googleDirections =  'https:google.com/maps/dir/?api=1&origin=Chicago&destination=Milwaukee&travelmode=driving&map_action=map'
@@ -100,43 +100,42 @@ function calculateAndDisplayRoute(directionsService, directionsRenderer) {
 
 window.initMap = initMap;
 searchBtn.addEventListener('click', initMap); */
+var end = localStorage.getItem("Destination")
 
 var map;
 var waypoints;
 function initMap() {
-  var mapLayer = document.getElementById("tempmapdiv"); 
-  var centerCoordinates = new google.maps.LatLng(41.882,  -87.623);
-  var defaultOptions = { center: centerCoordinates, zoom: 8 }
+  var mapLayer = document.getElementById("tempmapdiv");
+  var centerCoordinates = new google.maps.LatLng(41.882, -87.623);
+  var defaultOptions = { center: centerCoordinates, zoom: 8 };
   map = new google.maps.Map(mapLayer, defaultOptions);
-	
-  var directionsService = new google.maps.DirectionsService;
-  var directionsDisplay = new google.maps.DirectionsRenderer;
+
+  var directionsService = new google.maps.DirectionsService();
+  var directionsDisplay = new google.maps.DirectionsRenderer();
   directionsDisplay.setMap(map);
- 
-  searchBtn.addEventListener("click",function() {
-    var start=document.getElementById('start-point').value;
-  var end=document.getElementById('destination').value;
-     drawPath(directionsService, directionsDisplay,start,end);
-              
-  });
-            
+
+  var start = localStorage.getItem("Origin");
+
+  var end = localStorage.getItem("Destination");
+  drawPath(directionsService, directionsDisplay, start, end);
 }
 
-function drawPath(directionsService, directionsDisplay,start,end) {
- directionsService.route({
-  origin: start,
-  destination: end,
-  optimizeWaypoints: true,
-  travelMode: 'DRIVING',
-     }, function(response, status) {
-                if (status === 'OK') {
-                directionsDisplay.setDirections(response);
-                } else {
-                window.alert('Problem in showing direction due to ' + status);
-                }
-            });
+function drawPath(directionsService, directionsDisplay, start, end) {
+  directionsService.route(
+    {
+      origin: start,
+      destination: end,
+      optimizeWaypoints: true,
+      travelMode: "DRIVING",
+    },
+    function (response, status) {
+      if (status === "OK") {
+        directionsDisplay.setDirections(response);
+      } else {
+        window.alert("Problem in showing direction due to " + status);
       }
+    }
+  );
+}
 
 
-
-    
