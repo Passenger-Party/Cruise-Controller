@@ -31,9 +31,10 @@ box-shadow: 2px 2px #bf360c;
 
 #tempmapdiv {
     margin:2em;
-    height: 30vh;
+    height: 40vh;
     aspect-ratio: 3 / 2;
 }
+
 
 aside {
     position: fixed;
@@ -130,3 +131,11 @@ background-color: rgba(0, 0, 0, 0.1);
     color: #bf360c;
 }
 
+#trip-description{
+    margin: 2em;
+}
+span{
+    font-weight: bold;
+    text-transform: capitalize;
+    color: rgb(45, 170, 158);
+}
