@@ -139,3 +139,7 @@ span{
     text-transform: capitalize;
     color: rgb(45, 170, 158);
 }
+/*table in saved trips style*/
+table{
+    text-transform: capitalize;
+}
