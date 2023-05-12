@@ -139,3 +139,66 @@ span{
     text-transform: capitalize;
     color: rgb(45, 170, 158);
 }
+
+p{
+    color: white;
+}
+#weatherContainer{
+   position: absolute; 
+   top: 40%;
+   left: 50%;
+   margin-top: 25%;
+   margin-right: -50%;
+   transform: translate(-50%, -50%);
+   height: 300px;
+   width: 1300px;
+   border: 5px solid;
+   border-radius: 10px;
+}
+#iconsContainer{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    height: 240px;
+    width: 1200px;    
+}
+.icons{
+    float: left;
+    height: 200px;
+    width: 190px;
+    margin: 20px;
+}
+.image{
+    height: 140px;
+    width: 100%;
+}
+.imgClass{
+    height: 140px;
+    width: 100%;
+}
+.weather{
+    margin: 5px;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+}
+.minValues{
+    text-align: center;
+    border-radius: 5px;
+    height: 25px;
+    width: 85px;
+    margin: 0;
+    margin-bottom: 5px;
+    margin-left: 5px;
+}
+.maxValues{
+    text-align: center;
+    border-radius: 5px;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    margin-bottom: 5px;
+    margin-left: 5px;
+}
