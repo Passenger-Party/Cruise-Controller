@@ -100,10 +100,11 @@ function calculateAndDisplayRoute(directionsService, directionsRenderer) {
 
 window.initMap = initMap;
 searchBtn.addEventListener('click', initMap); */
-var tripStart=document.getElementById('trip-start');
-var tripEnd=document.getElementById('trip-end');
+//var tripStart=document.getElementById('trip-start'); //displaying start and end point on the page
+//var tripEnd=document.getElementById('trip-end');
 var end = localStorage.getItem("Destination")
-
+var saveBtn=document.getElementById('save-btn')
+//var savedTrip=[]
 var map;
 var waypoints;
 function initMap() {
@@ -119,6 +120,8 @@ function initMap() {
   var start = localStorage.getItem("Origin");
 
   var end = localStorage.getItem("Destination");
+  var tripStart=document.getElementById('trip-start'); //displaying start and end point on the page
+   var tripEnd=document.getElementById('trip-end');
   tripStart.textContent=start;
   tripEnd.textContent=end;
   drawPath(directionsService, directionsDisplay, start, end);
@@ -142,4 +145,22 @@ function drawPath(directionsService, directionsDisplay, start, end) {
   );
 }
 
-
+saveBtn.addEventListener('click', function(){
+  event.preventDefault()
+  var tripStart=document.getElementById('trip-start').innerHTML
+  var tripEnd=document.getElementById('trip-end').innerHTML
+  var save={}
+  save.origin=tripStart;
+  save.destination=tripEnd;
+  var savedTrip=JSON.parse(localStorage.getItem('Saved'));
+  if (save==null){
+    var savedTrip=[];
+    savedTrip.push(save);
+    localStorage.setItem("Saved", JSON.stringify(savedTrip));
+  } else{
+    savedTrip.push(save);
+      localStorage.setItem("Saved", JSON.stringify(savedTrip));
+  }
+ 
+  
+})

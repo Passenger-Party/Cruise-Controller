@@ -29,12 +29,6 @@ box-shadow: 2px 2px #bf360c;
     font-family: 'TypoPRO Bukhari Script';
 }
 
-#tempmapdiv {
-    margin:2em;
-    height: 40vh;
-    aspect-ratio: 3 / 2;
-}
-
 
 aside {
     position: fixed;
@@ -42,7 +36,7 @@ aside {
     flex-direction: column;
     color: #fff;
     background-color: #FFCCBC;
-    width: 20%;
+    width: 15%;
     min-height: 100%;
     z-index: 1;
   }
@@ -56,6 +50,7 @@ aside {
 aside img {
     position: relative;
     margin-top: 20%;
+    margin-bottom: 20%;
     margin-left: 5%;
     margin-right: 5%;
     width: 90%;
@@ -72,7 +67,6 @@ aside p {
 
 aside ul {
     position: relative;
-    margin: 0;
     line-height: 100px;
 }
 
@@ -111,7 +105,7 @@ background-color: rgba(0, 0, 0, 0.1);
     background-repeat: no-repeat;
     overflow: scroll;
     right: 0;
-    width: 80%;
+    width: 85%;
 }
 
 #main-index {
@@ -131,11 +125,40 @@ background-color: rgba(0, 0, 0, 0.1);
     color: #bf360c;
 }
 
-#trip-description{
-    margin: 2em;
-}
 span{
     font-weight: bold;
     text-transform: capitalize;
-    color: rgb(45, 170, 158);
+    color: #6c1b02;
+    text-decoration: underline;
+}
+
+/* Trip Page */
+
+#trip-description {
+    margin: 2em;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+#save-btn {
+    display: inline-block;
+    margin-bottom: 10px;
+    height: 2em;
+    background-color: #fbc02d;
+    color: #6c1b02;
+}
+
+#save-btn:hover {
+    background-color: #ffb300;
+}
+
+#tempmapdiv {
+    margin:2em;
+    width: 50vw;
+    aspect-ratio: 3 / 2;
+}
+/*table in saved trips style*/
+table{
+    text-transform: capitalize;
 }
