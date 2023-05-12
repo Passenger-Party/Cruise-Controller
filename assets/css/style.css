@@ -29,12 +29,6 @@ box-shadow: 2px 2px #bf360c;
     font-family: 'TypoPRO Bukhari Script';
 }
 
-#tempmapdiv {
-    margin:2em;
-    height: 40vh;
-    aspect-ratio: 3 / 2;
-}
-
 
 aside {
     position: fixed;
@@ -131,11 +125,36 @@ background-color: rgba(0, 0, 0, 0.1);
     color: #bf360c;
 }
 
-#trip-description{
-    margin: 2em;
-}
 span{
     font-weight: bold;
     text-transform: capitalize;
-    color: rgb(45, 170, 158);
+    color: #6c1b02;
+    text-decoration: underline;
+}
+
+/* Trip Page */
+
+#trip-description {
+    margin: 2em;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+#save-btn {
+    display: inline-block;
+    margin-bottom: 10px;
+    height: 2em;
+    background-color: #fbc02d;
+    color: #6c1b02;
+}
+
+#save-btn:hover {
+    background-color: #ffb300;
+}
+
+#tempmapdiv {
+    margin:2em;
+    width: 50vw;
+    aspect-ratio: 3 / 2;
 }
