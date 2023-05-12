@@ -100,8 +100,11 @@ function calculateAndDisplayRoute(directionsService, directionsRenderer) {
 
 window.initMap = initMap;
 searchBtn.addEventListener('click', initMap); */
+//var tripStart=document.getElementById('trip-start'); //displaying start and end point on the page
+//var tripEnd=document.getElementById('trip-end');
 var end = localStorage.getItem("Destination")
-
+var saveBtn=document.getElementById('save-btn')
+//var savedTrip=[]
 var map;
 var waypoints;
 function initMap() {
@@ -122,6 +125,10 @@ function initMap() {
   var start = localStorage.getItem("Origin");
 
   var end = localStorage.getItem("Destination");
+  var tripStart=document.getElementById('trip-start'); //displaying start and end point on the page
+   var tripEnd=document.getElementById('trip-end');
+  tripStart.textContent=start;
+  tripEnd.textContent=end;
   drawPath(directionsService, directionsDisplay, start, end);
 }
 
@@ -144,4 +151,57 @@ function drawPath(directionsService, directionsDisplay, start, end) {
   );
 }
 
+function GetInfo(){
+  var destination = localStorage.getItem("Destination");
 
+  fetch('https://api.openweathermap.org/data/2.5/forecast?&units=imperial&q='+destination+'&appid=88f279a121e9f3c2da0f526adc7c151d')
+  .then(Response => Response.json())
+  .then(data => {
+    console.log(data);
+      for(i = 0; i<5; i++){
+          document.getElementById("day" + (i+1) + "Min").innerHTML = "Low: " + Math.round(data.list[i].main.temp_min).toFixed(1)+ "0°";
+      }
+      for(i = 0; i<5; i++){
+          document.getElementById("day" + (i+1) + "Max").innerHTML = "High: " + Math.round(data.list[i].main.temp_max).toFixed(2)+ "°";
+      }
+      for(i = 0; i<5; i++){
+          document.getElementById("img" + (i+1)).src = "http://openweathermap.org/img/wn/"+data.list[i].weather[0].icon+".png";
+      }
+  })
+}
+
+var d = new Date();
+var weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
+function CheckDay(day){
+  if(day + d.getDay() > 6){
+      return day + d.getDay() - 7;
+  }
+  else{
+      return day + d.getDay();
+  }
+}
+for(i = 0; i<5; i++){
+  document.getElementById("day" + (i+1)).innerHTML = weekday[CheckDay(i)];
+}
+
+
+saveBtn.addEventListener('click', function(){
+  event.preventDefault()
+  var tripStart=document.getElementById('trip-start').innerHTML
+  var tripEnd=document.getElementById('trip-end').innerHTML
+  var save={}
+  save.origin=tripStart;
+  save.destination=tripEnd;
+  var savedTrip=JSON.parse(localStorage.getItem('Saved'));
+  if (save==null){
+    var savedTrip=[];
+    savedTrip.push(save);
+    localStorage.setItem("Saved", JSON.stringify(savedTrip));
+  } else{
+    savedTrip.push(save);
+      localStorage.setItem("Saved", JSON.stringify(savedTrip));
+  }
+ 
+  
+}, {once:true})
