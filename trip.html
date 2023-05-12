@@ -27,7 +27,7 @@
   </aside>
   <div id="main">
     <div id="trip-description">
-      <h4>This is your trip from <span id="trip-start" > __</span>  to  <span id="trip-end"> __ </span></h4>
+      <h4>This is your trip from <span id="trip-start" ></span>  to  <span id="trip-end"></span>. Total Time: <span id="trip-time"></span></h4>
       <button id="save-btn"  type="save" class='btn' >Save </button>
       </div>
     <div id="tempmapdiv">
@@ -80,7 +80,8 @@
         });
       </script>
       <script async="" defer="" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDOMF9Qvb_zajNGVx1sVSlEEZwEnANziH0&amp;callback=initMap">
-      </script>    
+      </script>
+      <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDOMF9Qvb_zajNGVx1sVSlEEZwEnANziH0&libraries=places&callback=initMap"></script>  
       <!-- Materialize JS -->
       <script src="./materialize/js/materialize.js"></script>
       <script src="./assets/js/mapsscript.js"></script>
