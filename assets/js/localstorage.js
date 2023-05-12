@@ -22,6 +22,6 @@ localStorage.setItem("Destination", endCity)
 console.log(endCity)
 }
 
-searchBtn.addEventListener("click", storeCitySearch)
+searchBtn.addEventListener("click", storeCitySearch, )
 
 
