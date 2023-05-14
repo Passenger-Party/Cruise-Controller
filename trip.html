@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="./assets/css/style.css">
     <title>Cruise Controller -- New Trip</title>
 </head>
-<body onload="GetInfo()"> 
+<body onload="GetInfo()" class="main"> 
 
   <aside> 
     <div>
@@ -25,7 +25,7 @@
       </ul>
     </div> 
   </aside>
-  <div id="main">
+  <div id="trip-main">
     <div id="trip-description">
       <h4>This is your trip from <span id="trip-start" ></span>  to  <span id="trip-end"></span>. Total Time: <span id="trip-time"></span></h4>
       <button id="save-btn"  type="save" class='btn' >Save </button>
@@ -33,39 +33,40 @@
     <div id="tempmapdiv">
     </div> 
     <div id="weatherContainer">
+      <h3>Weather in <span id="weather-location"></span></h3>
       <div id="iconsContainer">
           <div class = "icons">
               <p class="weather" id="day1"></p>
               <div class="image"><img src="dots.png" class="imgClass" id="img1"></div>
               <p class="minValues" id="day1Min">Loading</p>
-              <p class="maxValuse" id="day1Max">Loading</p>
+              <p class="maxValues" id="day1Max">Loading</p>
           </div>
           <div class = "icons">
               <p class="weather" id="day2"></p>
               <div class="image"><img src="dots.png" class="imgClass" id="img2"></div>
               <p class="minValues" id="day2Min">Loading</p>
-              <p class="maxValuse" id="day2Max">Loading</p>
+              <p class="maxValues" id="day2Max">Loading</p>
           </div>
           <div class = "icons">
               <p class="weather" id="day3"></p>
               <div class="image"><img src="dots.png" class="imgClass" id="img3"></div>
               <p class="minValues" id="day3Min">Loading</p>
-              <p class="maxValuse" id="day3Max">Loading</p>
+              <p class="maxValues" id="day3Max">Loading</p>
           </div>
           <div class = "icons">
               <p class="weather" id="day4"></p>
               <div class="image"><img src="dots.png" class="imgClass" id="img4"></div>
               <p class="minValues" id="day4Min">Loading</p>
-              <p class="maxValuse" id="day4Max">Loading</p>
+              <p class="maxValues" id="day4Max">Loading</p>
           </div>
           <div class = "icons">
               <p class="weather" id="day5"></p>
               <div class="image"><img src="dots.png" class="imgClass" id="img5"></div>
               <p class="minValues" id="day5Min">Loading</p>
-              <p class="maxValuse" id="day5Max">Loading</p>
+              <p class="maxValues" id="day5Max">Loading</p>
           </div>
       </div>
-  </div> 
+    </div> 
   </div>
 
   

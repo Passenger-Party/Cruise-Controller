@@ -99,6 +99,7 @@ background-color: rgba(0, 0, 0, 0.1);
 
 #main {
     position: absolute;
+    flex: row wrap;
     height: 100%;
     background-size: cover;
     background: linear-gradient(#ffb300, #ef6c00, #bf360c);
@@ -134,96 +135,108 @@ span{
 p{
     color: white;
 }
-#weatherContainer{
-   position: absolute; 
-   top: 40%;
-   left: 50%;
-   margin-top: 25%;
-   margin-right: -50%;
-   transform: translate(-50%, -50%);
-   height: 300px;
-   width: 1300px;
-   border: 5px solid;
-   border-radius: 10px;
-}
-#iconsContainer{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-right: -50%;
-    transform: translate(-50%, -50%);
-    height: 240px;
-    width: 1200px;    
-}
-.icons{
-    float: left;
-    height: 200px;
-    width: 190px;
-    margin: 20px;
-}
-.image{
-    height: 140px;
-    width: 100%;
-}
-.imgClass{
-    height: 140px;
-    width: 100%;
-}
-.weather{
-    margin: 5px;
-    border-radius: 5px;
-    text-align: center;
-    font-weight: bold;
-}
-.minValues{
-    text-align: center;
-    border-radius: 5px;
-    height: 25px;
-    width: 85px;
-    margin: 0;
-    margin-bottom: 5px;
-    margin-left: 5px;
-}
-.maxValues{
-    text-align: center;
-    border-radius: 5px;
-    height: 100%;
-    width: 100%;
-    margin: 0;
-    margin-bottom: 5px;
-    margin-left: 5px;
 
-    color: #6c1b02;
-    text-decoration: underline;
-}
+
 
 /* Trip Page */
 
-#trip-description {
-    margin: 2em;
+#trip-main {
     display: flex;
+    flex-wrap: wrap;
+    position: absolute;
+    height: 100%;
+    align-items: flex-start;
+    justify-content: center;
+    background-size: cover;
+    background: linear-gradient(#ffb300, #ef6c00, #bf360c);
+    background-repeat: no-repeat;
+    overflow: scroll;
+    right: 0;
+    width: 85%;
+    gap: 2vw;
+}
+
+#trip-description {
+    margin: 2%;
+    display: flex;
+    flex-basis: 95%;
+    
     justify-content: space-between;
     align-items: flex-end;
 }
 
-#save-btn {
-    display: inline-block;
-    margin-bottom: 10px;
-    height: 2em;
-    background-color: #fbc02d;
-    color: #6c1b02;
-}
+    #save-btn {
+        display: inline-block;
+        margin-bottom: 10px;
+        height: 2em;
+        background-color: #fbc02d;
+        color: #6c1b02;
+    }
 
-#save-btn:hover {
-    background-color: #ffb300;
-}
+    #save-btn:hover {
+        background-color: #ffb300;
+    }
 
 #tempmapdiv {
-    margin:2em;
     width: 50vw;
+    flex-basis: 50vw;
     aspect-ratio: 3 / 2;
 }
-/*table in saved trips style*/
+
+
+#weatherContainer{
+    display: block; 
+    border: 5px solid white;
+    border-radius: 10px;
+ }
+    #weatherContainer h3 {
+        text-align: center;
+    }
+ 
+    #iconsContainer{
+        display: flex;
+        width: 30vw;
+        flex-direction: row;
+        flex-wrap: wrap;
+        float: right;
+        border-radius: 10px;
+    }
+    
+    .icons{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 3px;
+        justify-content: center;
+        flex: 1 0 50%;
+
+    }
+        .image{
+            height: 100px;
+        }
+        .imgClass{
+            height: 100px;
+        }
+        .weather{
+            border-radius: 5px;
+            text-align: center;
+            font-size: 1.5em;
+        }
+        .minValues{
+            text-align: center;
+            border-radius: 5px;
+            height: 25px;
+            width: 85px;
+        }
+        .maxValues{
+            text-align: center;
+            border-radius: 5px;
+            height: 25px;
+            width: 85px;
+        }
+
+ /*table in saved trips style*/
+
 table{
     text-transform: capitalize;
 }

@@ -27,9 +27,11 @@ function initMap() {
 
   var tripStart = document.getElementById("trip-start"); //displaying start and end point on the page
   var tripEnd = document.getElementById("trip-end");
+  var weatherLocation = document.getElementById("weather-location");
 
   tripStart.textContent = start;
   tripEnd.textContent = end;
+  weatherLocation.textContent = end;
 
   drawPath(directionsService, directionsDisplay, start, end);
 }
@@ -91,7 +93,7 @@ for(i = 0; i<5; i++){
 }
 
 
-saveBtn.addEventListener('click', function(){
+saveBtn.addEventListener('click', function(event){
   event.preventDefault()
   var tripStart=document.getElementById('trip-start').innerHTML
   var tripEnd=document.getElementById('trip-end').innerHTML
@@ -107,6 +109,4 @@ saveBtn.addEventListener('click', function(){
     savedTrip.push(save);
     localStorage.setItem("Saved", JSON.stringify(savedTrip));
   }
- 
-  
 })
