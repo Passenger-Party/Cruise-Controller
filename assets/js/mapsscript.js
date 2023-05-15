@@ -46,9 +46,12 @@ function drawPath(directionsService, directionsDisplay, start, end) {
     },
     function (response, status) {
       tripTimeEl = document.getElementById('trip-time');
+      tripDistEl = document.getElementById('trip-dist')
       tripTime = response.routes[0].legs[0].duration.text;
+      tripDist = response.routes[0].legs[0].distance.text;
       tripTimeEl.textContent = tripTime;
-      console.log(tripTimeEl);
+      tripDistEl.textContent = tripDist;
+      console.log(response);
       if (status === "OK") {
         directionsDisplay.setDirections(response);
       } else {

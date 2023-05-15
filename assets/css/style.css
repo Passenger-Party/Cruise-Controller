@@ -137,16 +137,10 @@ background-color: rgba(0, 0, 0, 0.1);
     color: var(--bold);
 }
 
-span{
-    font-weight: bold;
-    text-transform: capitalize;
-    color: var(--nav);
-}
 
 p{
     color: var(--light);
 }
-
 
 
 /* Trip Page */
@@ -176,6 +170,12 @@ p{
     align-items: flex-end;
 }
 
+#trip-description span{
+    font-weight: bold;
+    text-transform: capitalize;
+    color: var(--nav);
+}
+
     #save-btn {
         display: inline-block;
         margin-bottom: 10px;
@@ -192,6 +192,15 @@ p{
     width: 50vw;
     flex-basis: 50vw;
     aspect-ratio: 3 / 2;
+}
+
+#route-descr {
+    font-size: 16px;
+}
+
+#route-descr span{
+    margin: 1em;
+    font-size: 18px;
 }
 
 
