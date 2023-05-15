@@ -258,6 +258,7 @@ fetch(
       addressEl.textContent = data.businesses[i].location.display_address;
       yelpEl.appendChild(addressEl);
     }
+  
   });
 });
 
