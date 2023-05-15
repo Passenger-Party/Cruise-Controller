@@ -2,6 +2,13 @@
     box-sizing: border-box;
 }
 
+:root {
+    --nav: #ba634f;
+    --bold: #bf360c;
+    --light: #ffffff;
+
+}
+
 html{
     height: 100%;
 }
@@ -11,13 +18,13 @@ body {
     padding: 0;
     font-family: 'Oswald', sans-serif;
     line-height: 1.5;
-    color: white;
+    color: var(--light);
 }
 
 .btn {
 font-size: 1.3rem; 
 text-decoration: none;
-box-shadow: 2px 2px #bf360c;
+box-shadow: 2px 2px var(--bold);
 }
 
 .btn:hover {
@@ -25,8 +32,12 @@ box-shadow: 2px 2px #bf360c;
 }
 
 .page-header {
-    color: #bf360c;
+    color: var(--bold);
     font-family: 'TypoPRO Bukhari Script';
+}
+
+.input-field {
+    color: var(--nav);
 }
 
 
@@ -34,8 +45,8 @@ aside {
     position: fixed;
     display: flex;
     flex-direction: column;
-    color: #fff;
-    background-color: #FFCCBC;
+    color: var(--light);
+    background: linear-gradient(#ffb300, #ef6c00, var(--bold));
     width: 15%;
     min-height: 100%;
     z-index: 1;
@@ -43,7 +54,7 @@ aside {
 
 @media screen and (max-width: 550px){
     aside {
-        background-color: white;
+        background-color: var(--light);
     }
 }
   
@@ -86,8 +97,8 @@ aside ul a {
     -webkit-transition: background-color .3s;
     transition: background-color .3s;
     font-size: calc(1rem + 1vw);
-    color: #000;
-    text-shadow: 1px 1px #FF6E40;
+    color: var(--light);
+    text-shadow: 1px 1px #414141;
     display: block;
     padding: 0 15px;
     cursor: pointer;
@@ -102,7 +113,7 @@ background-color: rgba(0, 0, 0, 0.1);
     flex: row wrap;
     height: 100%;
     background-size: cover;
-    background: linear-gradient(#ffb300, #ef6c00, #bf360c);
+    background: linear-gradient(#ffb300, #ef6c00, var(--bold));
     background-repeat: no-repeat;
     overflow: scroll;
     right: 0;
@@ -113,7 +124,7 @@ background-color: rgba(0, 0, 0, 0.1);
     position: absolute;
     height: 100%;
     background-size: cover;
-    background: linear-gradient(#ffb300, #ef6c00, #bf360c);
+    background: linear-gradient(#ffb300, #ef6c00, var(--bold));
     background-repeat: no-repeat;
     overflow: scroll;
     padding-top: 10%;
@@ -123,17 +134,17 @@ background-color: rgba(0, 0, 0, 0.1);
 }
 
 #start-btn {
-    color: #bf360c;
+    color: var(--bold);
 }
 
 span{
     font-weight: bold;
     text-transform: capitalize;
-    color: rgb(45, 170, 158);
+    color: var(--nav);
 }
 
 p{
-    color: white;
+    color: var(--light);
 }
 
 
@@ -148,7 +159,7 @@ p{
     align-items: flex-start;
     justify-content: center;
     background-size: cover;
-    background: linear-gradient(#ffb300, #ef6c00, #bf360c);
+    background: linear-gradient(#ffb300, #ef6c00, var(--bold));
     background-repeat: no-repeat;
     overflow: scroll;
     right: 0;
@@ -186,7 +197,7 @@ p{
 
 #weatherContainer{
     display: block; 
-    border: 5px solid white;
+    border: 5px solid var(--light);
     border-radius: 10px;
  }
     #weatherContainer h3 {
