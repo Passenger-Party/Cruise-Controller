@@ -1,121 +1,21 @@
-//var origin=document.getElementById('start-point').value;
-//var destination=document.getElementById('destination').value;
 var searchBtn = document.getElementById("start-btn");
 var googleApi = "AIzaSyDOMF9Qvb_zajNGVx1sVSlEEZwEnANziH0";
-//var mapDiv=document.createElement('div')
-// Maps API key
-// AIzaSyDOMF9Qvb_zajNGVx1sVSlEEZwEnANziH0
-
-// https://www.google.com/maps/search/?api=1&parameters
-
-// Directions
 
 var mapDiv = document.querySelector("#tempmapdiv");
 var googleDirections =
   "https://www.google.com/maps/dir/?api=1&origin={start}&destination={end}&travelmode=driving&map_action=map";
 
-//var DirectionsService;
-// origin - defines the starting point from which to display directions
-//destination - endpoint of the directions
+var end = localStorage.getItem("Destination");
+var saveBtn = document.getElementById("save-btn");
+var tripTime;
 
-// function displayMap () {
-//     var googleDirections =  'https:google.com/maps/dir/?api=1&origin=Chicago&destination=Milwaukee&travelmode=driving&map_action=map'
-
-//     const {DirectionsService} = await google.maps.importLibrary("routes")
-// Initialize and add the map
-/*
-var map;
-async function initMap() {
-  var start=document.getElementById('start-point').value;
-  var end=document.getElementById('destination').value;
-  // The location of Uluru
-  const position = { lat: 41.882, lng: -87.623 };
-  // Request needed libraries.
-  //@ts-ignore
-  const { Map } = await google.maps.importLibrary("maps");
-  const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
- 
-
-
-  // The map, centered at Uluru
-  map = new Map(document.getElementById("tempmapdiv"), {
-    zoom: 4,
-    center: position,
-    mapId: "DEMO_MAP_ID",
-  });
-
-  // The marker, positioned at Uluru
-  const marker = new AdvancedMarkerElement({
-    map: map,
-    position: position,
-    title: "Uluru",
-    //calculateAndDisplayRoute
-  });
-
- calculateAndDisplayRoute()
-}*/
-
-//initMap();
-/*
-function calculateAndDisplayRoute(directionsService){
-  var direction =new google.maps.DirectionsService()
-  console.log(direction);
-  var start=document.getElementById('start-point').value;
-  var end=document.getElementById('destination').value;
-  console.log(start, end);
-  var request={
-    origin: start,
-    destination: end,
-    travelMode: 'DRIVING',
-  };
-  console.log(request);
-  var direction =new google.maps.DirectionsService()
-  console.log(direction);
-  directionsService.route(request,function(response,status) {
-        
-    if (status==google.maps.DirectionsStatus.OK) {
-      var direction =new google.maps.DirectionsService()
-      directionsDisplay.setDirections(response);
-      console.log(direction);
-    }
-  });
-};
- 
-function calculateAndDisplayRoute(directionsService, directionsRenderer) {
-  var start=document.getElementById('start-point').value;
-  var end=document.getElementById('destination').value;
-  console.log(start, end);
-  var request={
-    origin: start,
-    destination: end,
-    travelMode: 'DRIVING',
-  };
-  directionsService
-    .route(request)
-    .then((response) => {
-      directionsRenderer.setDirections(response);
-    })
-    .catch((e) => window.alert("Directions request failed due to " + status));
-}
-
-window.initMap = initMap;
-searchBtn.addEventListener('click', initMap); */
-//var tripStart=document.getElementById('trip-start'); //displaying start and end point on the page
-//var tripEnd=document.getElementById('trip-end');
-var end = localStorage.getItem("Destination")
-var saveBtn=document.getElementById('save-btn')
-//var savedTrip=[]
 var map;
 var waypoints;
-function initMap() {
-  var start = localStorage.getItem("Origin");
 
-  var end = localStorage.getItem("Destination");
-  const image =
-    "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png";
+function initMap() {
   var mapLayer = document.getElementById("tempmapdiv");
-  var centerCoordinates = new google.maps.LatLng(-87.65, 41.85);
-  var defaultOptions = {mapId:"7acc486bc4b7f6c5", center: centerCoordinates, zoom: 8, icon: image, };
+  var centerCoordinates = new google.maps.LatLng(41.882, -87.623);
+  var defaultOptions = { center: centerCoordinates, zoom: 8 };
   map = new google.maps.Map(mapLayer, defaultOptions);
 
   var directionsService = new google.maps.DirectionsService();
@@ -123,12 +23,16 @@ function initMap() {
   directionsDisplay.setMap(map);
 
   var start = localStorage.getItem("Origin");
-
   var end = localStorage.getItem("Destination");
-  var tripStart=document.getElementById('trip-start'); //displaying start and end point on the page
-   var tripEnd=document.getElementById('trip-end');
-  tripStart.textContent=start;
-  tripEnd.textContent=end;
+
+  var tripStart = document.getElementById("trip-start"); //displaying start and end point on the page
+  var tripEnd = document.getElementById("trip-end");
+  var weatherLocation = document.getElementById("weather-location");
+
+  tripStart.textContent = start;
+  tripEnd.textContent = end;
+  weatherLocation.textContent = end;
+
   drawPath(directionsService, directionsDisplay, start, end);
 }
 
@@ -142,14 +46,16 @@ function drawPath(directionsService, directionsDisplay, start, end) {
     },
     function (response, status) {
       tripTimeEl = document.getElementById('trip-time');
+      tripDistEl = document.getElementById('trip-dist')
       tripTime = response.routes[0].legs[0].duration.text;
+      tripDist = response.routes[0].legs[0].distance.text;
       tripTimeEl.textContent = tripTime;
-      console.log(tripTimeEl);
+      tripDistEl.textContent = tripDist;
+      console.log(response);
       if (status === "OK") {
         directionsDisplay.setDirections(response);
       } else {
         window.alert("Problem in showing direction due to " + status);
-        console.log(google.maps.Distance);
       }
     }
   );
@@ -190,7 +96,7 @@ for(i = 0; i<5; i++){
 }
 
 
-saveBtn.addEventListener('click', function(){
+saveBtn.addEventListener('click', function(event){
   event.preventDefault()
   var tripStart=document.getElementById('trip-start').innerHTML
   var tripEnd=document.getElementById('trip-end').innerHTML
@@ -202,62 +108,8 @@ saveBtn.addEventListener('click', function(){
     var savedTrip=[];
     savedTrip.push(save);
     localStorage.setItem("Saved", JSON.stringify(savedTrip));
-  } else{
+  } else {
     savedTrip.push(save);
-      localStorage.setItem("Saved", JSON.stringify(savedTrip));
+    localStorage.setItem("Saved", JSON.stringify(savedTrip));
   }
- 
-  
-}, {once:true})
-
-
-var myHeaders = new Headers();
-myHeaders.append(
-  "Authorization",
-  "Bearer CbsZdL6zhyAnhaNO6DE79_1qyjLwvnjsCGMK59j0ByuEDX3XnsE1lVj_NLT-gayo6tikjdFLsa2XjjbxKWNrlF-jhz3FtfMpHjEVWYl2izBT4yRItsVIeLQTU4RZZHYx"
-);
-
-var requestOptions = {
-  method: "GET",
-  headers: myHeaders,
-  redirect: "follow",
-};
-
-var destination = localStorage.getItem("Destination")
-
-fetch(
-  'https://cors-anywhere-bc.herokuapp.com/api.yelp.com/v3/businesses/search?category=restaurant&location=' + destination +'&limit=5',
-  requestOptions)
-  .then(function (response) {
-  return response.json().then(function (data) {
-    console.log(data.businesses);
-
-    for (var i = 0; i < data.businesses.length; i++) {
-      var yelpEl = document.querySelector("#yelp");
-    
-      var cityHeader = document.createElement('h3')
-      cityHeader.textContent = "Restaurants to try in " + destination
-      yelpEl.appendChild(cityHeader)
-
-      var bizName = data.businesses[i].name;
-      var bizNameEl = document.createElement("h4");
-      console.log(bizName);
-      bizNameEl.textContent = bizName;
-      yelpEl.appendChild(bizNameEl);
-
-      var imageEl = document.createElement("img");
-      imageEl.setAttribute("src", data.businesses[i].image_url);
-      imageEl.className = "yelpImage"
-      yelpEl.appendChild(imageEl);
-
-      var ratingEl = document.createElement("p");
-      ratingEl.textContent = "Rating: " + data.businesses[i].rating;
-      yelpEl.appendChild(ratingEl);
-
-      var addressEl = document.createElement("p");
-      addressEl.textContent = data.businesses[i].location.display_address;
-      yelpEl.appendChild(addressEl);
-    }
-  });
-});
-
+})

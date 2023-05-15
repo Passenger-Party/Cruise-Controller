@@ -208,9 +208,14 @@ p{
     display: block; 
     border: 5px solid var(--light);
     border-radius: 10px;
+    margin-bottom: 25px;
  }
     #weatherContainer h3 {
         text-align: center;
+    }
+
+    #weather-location {
+        font-size: 28px;
     }
  
     #iconsContainer{
