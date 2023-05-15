@@ -141,6 +141,10 @@ function drawPath(directionsService, directionsDisplay, start, end) {
       travelMode: "DRIVING",
     },
     function (response, status) {
+      tripTimeEl = document.getElementById('trip-time');
+      tripTime = response.routes[0].legs[0].duration.text;
+      tripTimeEl.textContent = tripTime;
+      console.log(tripTimeEl);
       if (status === "OK") {
         directionsDisplay.setDirections(response);
       } else {
