@@ -40,7 +40,6 @@ box-shadow: 2px 2px var(--bold);
     color: var(--nav);
 }
 
-
 aside {
     position: fixed;
     display: flex;

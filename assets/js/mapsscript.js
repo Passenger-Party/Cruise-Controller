@@ -13,9 +13,14 @@ var map;
 var waypoints;
 
 function initMap() {
+  var start = localStorage.getItem("Origin");
+
+  var end = localStorage.getItem("Destination");
+  const image =
+    "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png";
   var mapLayer = document.getElementById("tempmapdiv");
-  var centerCoordinates = new google.maps.LatLng(41.882, -87.623);
-  var defaultOptions = { center: centerCoordinates, zoom: 8 };
+  var centerCoordinates = new google.maps.LatLng(-87.65, 41.85);
+  var defaultOptions = {mapId:"7acc486bc4b7f6c5", center: centerCoordinates, zoom: 8, icon: image, };
   map = new google.maps.Map(mapLayer, defaultOptions);
 
   var directionsService = new google.maps.DirectionsService();
@@ -56,6 +61,7 @@ function drawPath(directionsService, directionsDisplay, start, end) {
         directionsDisplay.setDirections(response);
       } else {
         window.alert("Problem in showing direction due to " + status);
+        console.log(google.maps.Distance);
       }
     }
   );
