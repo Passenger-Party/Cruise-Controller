@@ -118,4 +118,58 @@ saveBtn.addEventListener('click', function(event){
     savedTrip.push(save);
     localStorage.setItem("Saved", JSON.stringify(savedTrip));
   }
-})
+ 
+  
+}, {once:true})
+
+
+var myHeaders = new Headers();
+myHeaders.append(
+  "Authorization",
+  "Bearer CbsZdL6zhyAnhaNO6DE79_1qyjLwvnjsCGMK59j0ByuEDX3XnsE1lVj_NLT-gayo6tikjdFLsa2XjjbxKWNrlF-jhz3FtfMpHjEVWYl2izBT4yRItsVIeLQTU4RZZHYx"
+);
+
+var requestOptions = {
+  method: "GET",
+  headers: myHeaders,
+  redirect: "follow",
+};
+
+var destination = localStorage.getItem("Destination")
+
+fetch(
+  'https://cors-anywhere-bc.herokuapp.com/api.yelp.com/v3/businesses/search?category=restaurant&location=' + destination +'&limit=5',
+  requestOptions)
+  .then(function (response) {
+  return response.json().then(function (data) {
+    console.log(data.businesses);
+
+    for (var i = 0; i < data.businesses.length; i++) {
+      var yelpEl = document.querySelector("#yelp");
+    
+      var cityHeader = document.createElement('h3')
+      cityHeader.textContent = "Restaurants to try in " + destination
+      yelpEl.appendChild(cityHeader)
+
+      var bizName = data.businesses[i].name;
+      var bizNameEl = document.createElement("h4");
+      console.log(bizName);
+      bizNameEl.textContent = bizName;
+      yelpEl.appendChild(bizNameEl);
+
+      var imageEl = document.createElement("img");
+      imageEl.setAttribute("src", data.businesses[i].image_url);
+      imageEl.className = "yelpImage"
+      yelpEl.appendChild(imageEl);
+
+      var ratingEl = document.createElement("p");
+      ratingEl.textContent = "Rating: " + data.businesses[i].rating;
+      yelpEl.appendChild(ratingEl);
+
+      var addressEl = document.createElement("p");
+      addressEl.textContent = data.businesses[i].location.display_address;
+      yelpEl.appendChild(addressEl);
+    }
+  });
+});
+

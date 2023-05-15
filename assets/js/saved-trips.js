@@ -26,10 +26,24 @@ function displaySaved(){
                 console.log(savedTrips);
                 localStorage.setItem('Saved', JSON.stringify(savedTrips))
             })
-           
+           table.addEventListener('click', function(){
+             var j=event.target.parentElement.rowIndex;
+             console.log(j);
+             var startCity=savedTrips[j-1].origin;
+                var endCity=savedTrips[j-1].destination;
+              
+                //startCity.unshift(startPointInput)
+              //endCity.unshift(destinationInput)
+              localStorage.setItem("Origin", startCity)
+              localStorage.setItem("Destination", endCity)
+              console.log(endCity)
+             //storeCitySearch; 
+             location.replace("trip.html");
+           })
         }
     } 
     }   
 }
+
 
 displaySaved()
