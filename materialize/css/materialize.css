@@ -2606,7 +2606,7 @@ ul:not(.browser-default) > li {
 }
 
 a {
-  color: #039be5;
+  color: #FFFFFF;
   text-decoration: none;
   -webkit-tap-highlight-color: transparent;
 }
@@ -4876,12 +4876,14 @@ small {
 }
 
 .card .card-image .card-title {
-  color: #fff;
+  color: #000;
   position: absolute;
   bottom: 0;
   left: 0;
+  background-color: rgb(255, 255, 255, 0.7) ;
   max-width: 100%;
-  padding: 24px;
+  padding: 10px;
+  font-weight: 900;
 }
 
 .card .card-content {
@@ -4891,6 +4893,7 @@ small {
 
 .card .card-content p {
   margin: 0;
+  color: #000;
 }
 
 .card .card-content .card-title {
@@ -6515,7 +6518,7 @@ textarea.materialize-textarea + label:after, .select-wrapper + label:after {
 
 .input-field.inline input,
 .input-field.inline .select-dropdown {
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 
 .input-field.col label {
@@ -6528,28 +6531,12 @@ textarea.materialize-textarea + label:after, .select-wrapper + label:after {
 }
 
 .input-field > label {
-  color: #357bb5;
-  position: absolute;
-  top: 0;
-  left: 0;
-  font-size: 1rem;
+  color: #FFF;
+  display: block;
+  position: relative;
+  font-size: 2rem;
   cursor: text;
-  -webkit-transition: color .2s ease-out, -webkit-transform .2s ease-out;
-  transition: color .2s ease-out, -webkit-transform .2s ease-out;
-  transition: transform .2s ease-out, color .2s ease-out;
-  transition: transform .2s ease-out, color .2s ease-out, -webkit-transform .2s ease-out;
-  -webkit-transform-origin: 0% 100%;
-          transform-origin: 0% 100%;
-  text-align: initial;
-  -webkit-transform: translateY(12px);
-          transform: translateY(12px);
-}
-
-.input-field > label {
-  -webkit-transform: translateY(-14px) scale(0.8);
-          transform: translateY(-14px) scale(0.8);
-  -webkit-transform-origin: 0 0;
-          transform-origin: 0 0;
+  float: left;
 }
 
 .input-field > input[type]:-webkit-autofill:not(.browser-default):not([type="search"]) + label,

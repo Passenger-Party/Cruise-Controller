@@ -13,7 +13,7 @@
     <!-- 'TypoPRO Bukhari Script' -->
     <link href="https://cdn.jsdelivr.net/npm/@typopro/web-bukhari-script@3.7.5/TypoPRO-BukhariScript.min.css" rel="stylesheet">
 
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDOMF9Qvb_zajNGVx1sVSlEEZwEnANziH0&libraries=places"></script>  
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDOMF9Qvb_zajNGVx1sVSlEEZwEnANziH0&libraries=places"></script>  
 
     <title>Cruise Controller</title>
 </head>
@@ -30,29 +30,34 @@
       </div> 
   </aside>
 
+  
     
   
   <div id="main-index" class="center-align">
-    <h1 class="page-header center-align">Where Are We Going?</h1>
+    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/0Jg602cHeMCnPez9baacIe?utm_source=generator" width="20%" height="76" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe><br>
+    <h1 class="page-header center-align">Where Are We Going?</h1><br>
     <div class="form container">   
-      <div class="row">
+      <div id="formContainer" class="row">
         <div class="input-field col s6">
+          <label class="active" for="start-point">Where Did You Come From?</label>
           <input  id="start-point" type="text" class="validate">
-          <label class="active" for="start-point">Start Point</label>
         </div>
          <div class="input-field col s6">
+           <label class="active" for="destination">Where Did You Go?</label> 
           <input  id="destination" type="text" class="validate">
-          <label class="active" for="destination">Destination</label> 
         </div>
       </div>
       
       <button onclick="redirectPage()" id="start-btn" type="submit" class="deep-orange lighten-4 btn-large" 
       >Find Trip</button>
+
+      <br><img src="./assets/images/CarLogo_1.png" alt="">
       <script>
         function redirectPage() {
           location.replace("trip.html")
         }
         </script>
+
 
     </div>
   </div> 
@@ -71,7 +76,9 @@
     var input2 = document.getElementById('destination');
 
     let autocomplete1 = new google.maps.places.Autocomplete(input1);
+    autocomplete1.setTypes(['locality']);
     let autocomplete2 = new google.maps.places.Autocomplete(input2);
+    autocomplete2.setTypes(['locality']);
 
 
   </script>
