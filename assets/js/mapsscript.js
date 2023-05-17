@@ -158,8 +158,6 @@ fetch('https://cors-anywhere-bc.herokuapp.com/api.yelp.com/v3/businesses/search?
     return response.json().then(function (data) {
       console.log(data)
 
-      var yelpEl = document.querySelector("#yelp");
-
       //console.log(yelpEl)
       
       var placesToStay = document.querySelector('#placesToStay')
