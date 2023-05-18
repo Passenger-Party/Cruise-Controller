@@ -544,4 +544,17 @@ table td:hover {
             margin-top: 2em;
             margin-bottom: 2em;
         }
+
+        #formContainer {
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+        }
+}
+
+@media screen and (max-height: 450px){
+    aside ul {
+        line-height: 60px;
+    }
 }
