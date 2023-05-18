@@ -156,10 +156,7 @@ var destination = localStorage.getItem("Destination")
 fetch('https://cors-anywhere-bc.herokuapp.com/api.yelp.com/v3/businesses/search?categories=hotels&sort_by=best_match&limit=5&location=' + destination, requestOptions)
   .then(function (response) {
     return response.json().then(function (data) {
-      console.log(data)
-
-      //console.log(yelpEl)
-      
+            
       var placesToStay = document.querySelector('#placesToStay')
       placesToStay.textContent = "Places to stay in " + destination
       
@@ -167,6 +164,7 @@ fetch('https://cors-anywhere-bc.herokuapp.com/api.yelp.com/v3/businesses/search?
         var hotel = document.createElement('div');
         hotel.setAttribute('id', 'hotel-'+(i+1));
         placesToStay.appendChild(hotel);
+        
         var hotelName = document.createElement("h4");
         
         var yelpHotelLink = document.createElement('a');
@@ -186,7 +184,7 @@ fetch('https://cors-anywhere-bc.herokuapp.com/api.yelp.com/v3/businesses/search?
         hotel.appendChild(hotelRating)
 
         var hotelAddress = document.createElement("p");
-        hotelAddress.textContent = data.businesses[i].location.display_address
+        hotelAddress.textContent =  data.businesses[i].location.display_address[0] + " " + data.businesses[i].location.display_address[1];
         hotel.appendChild(hotelAddress)
 
       }
@@ -197,7 +195,9 @@ fetch(
   'https://cors-anywhere-bc.herokuapp.com/api.yelp.com/v3/businesses/search?category=restaurant&location=' + destination +'&limit=5',
   requestOptions)
   .then(function (response) {
-  return response.json().then(function (data) {
+  return response.json().then(function (data)  {
+    console.log(data)
+
     var yelpEl = document.querySelector("#yelp");
     var destination = localStorage.getItem("Destination")
     var cityHeader = document.querySelector('#cityHeader')
@@ -208,15 +208,19 @@ fetch(
       restaurant.setAttribute('id', 'rest-'+i);
       cityHeader.appendChild(restaurant);
 
-      var yelpLink = document.createElement('a')
-      yelpLink.href = data.businesses[i].url
-      restaurant.appendChild(yelpLink)
-
-      var bizName = data.businesses[i].name;
       var bizNameEl = document.createElement("h4");
-      bizNameEl.textContent = bizName;
-      restaurant.appendChild(bizNameEl);
 
+      var yelpLink = document.createElement('a')
+      yelpLink.textContent = data.businesses[i].name
+      yelpLink.setAttribute ('href', data.businesses[i].url)
+      yelpLink.setAttribute('target', '_blank');
+
+      
+      
+bizNameEl.appendChild(yelpLink)
+restaurant.appendChild(bizNameEl);
+
+         
       var imageEl = document.createElement("img");
       imageEl.setAttribute("src", data.businesses[i].image_url);
       imageEl.className = "yelpImage"
