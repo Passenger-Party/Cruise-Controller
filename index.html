@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap" rel="stylesheet">
@@ -12,7 +13,7 @@
     <link rel="stylesheet" href="./assets/css/style.css"/>
     <!-- 'TypoPRO Bukhari Script' -->
     <link href="https://cdn.jsdelivr.net/npm/@typopro/web-bukhari-script@3.7.5/TypoPRO-BukhariScript.min.css" rel="stylesheet">
-
+    
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDOMF9Qvb_zajNGVx1sVSlEEZwEnANziH0&libraries=places"></script>  
 
     <title>Cruise Controller</title>
@@ -42,14 +43,12 @@
           <input  id="destination" type="text" class="validate">
         </div>
       </div>
-      
-      <button onclick="redirectPage()" id="start-btn" type="submit" class="deep-orange lighten-4 btn-large">Plan My Trip</button>
 
-      <script>
-        function redirectPage() {
-          location.replace("trip.html")
-        }
-      </script>
+      <div id="alert"></div>
+      
+      <button  id="start-btn" type="submit" class="btn-large">Plan My Trip</button>
+
+      
 
 
     </div>

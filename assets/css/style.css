@@ -31,7 +31,7 @@ body {
     background-repeat: no-repeat;
     overflow: scroll;
     right: 0;
-    width: 85%;
+    width: 83%;
 }
 
 p{
@@ -62,7 +62,7 @@ aside {
     flex-direction: column;
     color: var(--light);
     background: linear-gradient(#ffb300, #ef6c00, var(--bold));
-    width: 15%;
+    width: 17%;
     min-height: 100%;
     z-index: 1;
 }
@@ -79,7 +79,8 @@ aside img {
 
 aside ul {
     position: relative;
-    line-height: 100px;
+    line-height: 80px;
+    margin-left: 5px;
 }
 
 aside ul li {
@@ -87,7 +88,7 @@ aside ul li {
     transition: background-color .3s;
     position: relative;
     padding: 0;
-    margin-top: 4%;
+    margin-top: 10%;
 }
 
 aside ul li.active {
@@ -101,8 +102,12 @@ aside ul a {
     color: var(--light);
     text-shadow: 1px 1px #414141;
     display: block;
-    padding: 0 15px;
+    padding: 0 10px;
     cursor: pointer;
+    background: rgb(152, 10, 10, 0.5);
+    border: 0.5px solid rgb(152, 10, 10);
+    border-radius: 30px;
+    text-align: center;
 }
 
 aside ul a:hover {
@@ -120,11 +125,26 @@ aside ul a:hover {
     overflow: scroll;
     padding-top: 3%;
     right: 0;
-    width: 85%;
+    width: 83%;
 }
+  
+#alert{
+    color: var(--bold);
+    font-style: italic;
+    text-decoration: underline;
+    font-size: large;
+    margin-bottom: 2em;
+    
+}
+
 
 #start-btn {
     color: var(--bold);
+    background-color: #ffccbc;
+}
+
+#start-btn:hover {
+    background-color: #ffab91;
 }
 
 
@@ -169,8 +189,9 @@ iframe {
     background-repeat: no-repeat;
     overflow: scroll;
     right: 0;
-    width: 85%;
-    gap: 2vw;
+    padding-left: 5px;
+    width: 83%;
+    gap: 1vw;
 }
 
 #trip-description {
@@ -186,18 +207,19 @@ iframe {
     font-weight: bold;
     text-transform: capitalize;
     color: var(--nav);
+    
 }
 
     #save-btn {
         display: inline-block;
         margin-bottom: 10px;
         height: 2em;
-        background-color: #fbc02d;
-        color: #6c1b02;
+        background-color: #ffccbc;
+        color: var(--bold);
     }
 
     #save-btn:hover {
-        background-color: #ffb300;
+        background-color: #ffab91;
     }
 
 #tempmapdiv {
@@ -207,12 +229,21 @@ iframe {
 }
 
 #route-descr {
-    font-size: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    border: 0.5px solid rgb(152, 10, 10);
+    background: rgb(152, 10, 10, 0.5);
+    margin-top: 2em;
 }
 
-#route-descr span{
+.route-descr {
+    font-size: 24px;
+}
+
+.route-descr span{
     margin: 1em;
-    font-size: 18px;
+    font-size: 36px;
 }
 
 
@@ -222,6 +253,7 @@ iframe {
     border-radius: 10px;
     margin-bottom: 25px;
     width: 30vw;
+    background: linear-gradient(#90caf9, #0d47a1);
  }
     #weatherContainer h3 {
         text-align: center;
@@ -355,6 +387,8 @@ table td:hover {
 
     #route-descr {
         text-align: center;
+        margin-top: 2em;
+        margin-bottom: 2em;
     }
 
 }
@@ -362,20 +396,19 @@ table td:hover {
 @media only screen and (max-width: 768px){
     
     aside {
-    position: sticky;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
+        position: sticky;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
 
-    justify-content: space-between;
-    align-items: flex-start;
-    height: 150px;
-    width: 100%;
-    z-index: 0;
+        justify-content: space-between;
+        align-items: flex-start;
+        height: 150px;
+        width: 100%;
+        z-index: 0;
 
-    color: var(--light);
-    background: #ffb300;
-    border-bottom: 5px groove var(--light);
+        color: var(--light);
+        background: #ffb300;
     }
 
     aside img {
@@ -391,9 +424,10 @@ table td:hover {
         flex-direction: row;
         flex-wrap: wrap;
         align-items: center;
+        gap: 10px;
 
         line-height: 30px;
-        margin: 0;
+        margin-right: 5px;
         padding: 0;
         height: 100px;
         width: auto;
@@ -464,10 +498,50 @@ table td:hover {
     #yelp {
         width: 90%;
     }  
+
+    #route-descr {
+        margin-top: 2em;
+        margin-bottom: 2em;
+    }
 }
 
 @media only screen and (max-width: 550px){
+
     aside {
-        background: var(--light);
-    }
+        flex-wrap: nowrap;
+        flex-direction: column;
+    
+        justify-content: space-around;
+        align-items: center;
+        height: 350px;
+        width: 100%;
+        }
+    
+        aside img {
+            position: relative;
+            top: 20px;
+            padding: 10px;
+            box-shadow: #414141;
+        }
+    
+        #nav-mobile {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            align-items: space-around;
+            height: 150px;
+            width: 90%;
+        }
+    
+        aside ul li {
+            text-align: center;
+            padding: 2px;
+            margin: 5px;
+            width: 100%;
+        }
+
+        #route-descr {
+            margin-top: 2em;
+            margin-bottom: 2em;
+        }
 }
